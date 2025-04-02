@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fade-in 0.8s ease-in-out forwards;
+}
+
+@keyframes bounce-in-right {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-bounce-in-right {
+  animation: bounce-in-right 1.2s ease-out;
+}
+
+/* Subtle button glow effect */
+button:hover {
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.8);
+}
+
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* moving border css*/
+@keyframes border-move {
+  0% { border-color: transparent; }
+  25% { border-color: #3b82f6; }
+  50% { border-color: #1d4ed8; }
+  75% { border-color: #3b82f6; }
+  100% { border-color: transparent; }
+}
+
+.animate-border-move {
+  animation: border-move 3s linear infinite;
+}

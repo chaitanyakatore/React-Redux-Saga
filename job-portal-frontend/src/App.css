@@ -1,0 +1,12 @@
+
+
+button:hover {
+  /* Override default hover styles */
+  background-color: none;
+  color: none;
+  border-color: none;
+  filter: none;
+  transform: none;
+  box-shadow: none;
+}
+
