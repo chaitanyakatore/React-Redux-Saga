@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Bookmark, Clock, Briefcase, ArrowRight } from 'lucide-react';
+import { MapPin, Bookmark, Clock, Briefcase } from 'lucide-react';
 import { Tag } from '../Tag';
 
 interface JobCardProps {
@@ -23,16 +23,16 @@ const JobCard: React.FC<JobCardProps> = ({
   postedTime,
   jobType,
   experienceLevel,
-  applicantsCount
+  applicantsCount,
 }) => {
   return (
-    <div className="w-full bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200 border border-gray-100">
-      <div className="p-4 relative">
+    <div className="w-full bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200 border border-gray-100 flex flex-col">
+      <div className="p-4 flex-1 relative">
         {/* Bookmark Icon */}
         <div className="absolute top-3 right-3">
           <Bookmark className="w-4 h-4 text-gray-400 hover:text-blue-600 transition-colors" />
         </div>
-  
+
         {/* Company Logo and Job Details */}
         <div className="flex items-start mb-3">
           <div className="mr-3">
@@ -54,7 +54,7 @@ const JobCard: React.FC<JobCardProps> = ({
             )}
           </div>
         </div>
-  
+
         {/* Job Metadata */}
         <div className="space-y-1.5 mb-3">
           {/* Location */}
@@ -62,25 +62,22 @@ const JobCard: React.FC<JobCardProps> = ({
             <MapPin className="w-3.5 h-3.5 mr-1.5 text-gray-500" />
             <span className="text-xs">{location}</span>
           </div>
-  
-          {/* Salary and View Job */}
-          <div className="flex justify-between items-center text-gray-700">
-            <div className="flex items-center">
-              <Briefcase className="w-3.5 h-3.5 mr-1.5 text-gray-500" />
-              <span className="text-xs font-medium">{salaryRange}</span>
-            </div>
-            <a href="#" className="flex items-center text-blue-600 hover:text-blue-800 text-xs">
-              View Job
-              <ArrowRight className="w-3 h-3 ml-1" />
-            </a>
+
+          {/* Salary */}
+          <div className="flex items-center text-gray-700">
+            <Briefcase className="w-3.5 h-3.5 mr-1.5 text-gray-500" />
+            <span className="text-xs font-medium">{salaryRange}</span>
           </div>
         </div>
-  
+
         {/* Job Tags */}
-        <div className="flex space-x-2">
+        <div className="flex space-x-2 mb-3">
           <Tag label={jobType} variant="primary" icon={Clock} size="sm" />
           <Tag label={experienceLevel} variant="success" size="sm" />
         </div>
+        <button className="w-full px-4 py-2 text-sm font-medium text-white bg-blue-500 hover:bg-blue-700 transition-colors rounded">
+          View Job
+        </button>
       </div>
     </div>
   );

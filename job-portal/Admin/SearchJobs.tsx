@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Filter } from 'lucide-react';
-import JobCard from '../components/JobSeeker/JobCard';
+import JobCard from '../../components/JobSeeker/JobCard';
 import googleLogo from '../assets/google1.png';
 
-export const SavedJobs = () => {
+export const FindJob = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [locationTerm, setLocationTerm] = useState('');
   const [sortBy, setSortBy] = useState('Relevance');
@@ -124,78 +124,78 @@ export const SavedJobs = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Hero Section with Search */}
       <div className="bg-gradient-to-r from-[#EFF6FF] to-white pt-12 pb-8">
-        <div className="container mx-auto px-10"> {/* Increased side padding */}
-
-          {/* Search and Filter Section */}
-          <div className="bg-white p-4 md:p-5 rounded-lg shadow-sm border border-gray-100 mx-2"> {/* Reduced padding and added mx-2 */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3"> {/* Reduced gap */}
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Job title or keyword"
-                  className="w-full pl-3 pr-3 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  value={searchTerm}
-                  onChange={(e) => {
-                    setSearchTerm(e.target.value);
-                    setCurrentPage(1);
-                  }}
-                />
-              </div>
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Location"
-                  className="w-full pl-3 pr-3 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  value={locationTerm}
-                  onChange={(e) => {
-                    setLocationTerm(e.target.value);
-                    setCurrentPage(1);
-                  }}
-                />
-              </div>
-              <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-1.5 px-4 rounded-md transition-colors">
-                Search Jobs
-              </button>
-            </div>
-
-            <div className="flex justify-between items-center text-sm">
-              <button className="flex items-center gap-1.5 text-gray-600 hover:text-blue-600">
-                <Filter size={14} />
-                <span>More Filters</span>
-              </button>
-              
-              <div className="flex items-center gap-1.5">
-                <span className="text-gray-600">Sort By:</span>
-                <select 
-                  className="border-none bg-transparent font-medium focus:ring-0 text-sm py-1"
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                >
-                  <option>Relevance</option>
-                  <option>Newest</option>
-                  <option>Salary: High to Low</option>
-                  <option>Salary: Low to High</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <div className="container mx-auto px-10 lg:px-8"> {/* Increased side padding */}
+           {/* Search and Filter Section */}
+                    <div className="bg-white p-4 md:p-5 rounded-lg shadow-sm border border-gray-100 mx-2"> {/* Reduced padding and added mx-2 */}
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3"> {/* Reduced gap */}
+                        <div className="relative">
+                          <input
+                            type="text"
+                            placeholder="Job title or keyword"
+                            className="w-full pl-3 pr-3 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            value={searchTerm}
+                            onChange={(e) => {
+                              setSearchTerm(e.target.value);
+                              setCurrentPage(1);
+                            }}
+                          />
+                        </div>
+                        <div className="relative">
+                          <input
+                            type="text"
+                            placeholder="Location"
+                            className="w-full pl-3 pr-3 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            value={locationTerm}
+                            onChange={(e) => {
+                              setLocationTerm(e.target.value);
+                              setCurrentPage(1);
+                            }}
+                          />
+                        </div>
+                        <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-1.5 px-4 rounded-md transition-colors">
+                          Search Jobs
+                        </button>
+                      </div>
+          
+                      <div className="flex justify-between items-center text-sm">
+                        <button className="flex items-center gap-1.5 text-gray-600 hover:text-blue-600">
+                          <Filter size={14} />
+                          <span>More Filters</span>
+                        </button>
+                        
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-gray-600">Sort By:</span>
+                          <select 
+                            className="border-none bg-transparent font-medium focus:ring-0 text-sm py-1"
+                            value={sortBy}
+                            onChange={(e) => setSortBy(e.target.value)}
+                          >
+                            <option>Relevance</option>
+                            <option>Newest</option>
+                            <option>Salary: High to Low</option>
+                            <option>Salary: Low to High</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          
 
       {/* Job Listings */}
-      <div className="flex-grow container mx-auto px-6 py-6"> {/* Increased side padding */}
+      <div className="flex-grow container mx-auto px-6 lg:px-8 py-6"> {/* Increased side padding */}
         {/* Results Count */}
-        <div className="mb-4 px-2"> {/* Added px-2 */}
+        <div className="mb-4 px-2">
           <p className="text-sm text-gray-600">
             Showing {indexOfFirstJob + 1}-{Math.min(indexOfLastJob, filteredJobs.length)} of {filteredJobs.length} jobs
           </p>
         </div>
 
         {/* Job Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-2"> {/* Reduced gap and added px-2 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-2"> {/* Reduced gap */}
           {currentJobs.map((job, index) => (
             <JobCard
               key={index}
@@ -208,19 +208,18 @@ export const SavedJobs = () => {
               jobType={job.jobType}
               experienceLevel={job.experienceLevel}
               applicantsCount={job.applicantsCount}
-              
             />
           ))}
         </div>
 
         {/* Pagination */}
         {filteredJobs.length > jobsPerPage && (
-          <div className="mt-8 flex justify-center px-2"> {/* Added px-2 */}
+          <div className="mt-8 flex justify-center px-2">
             <nav className="inline-flex rounded-md shadow-sm">
               <button
                 onClick={handlePrevPage}
                 disabled={currentPage === 1}
-                className={`px-3 py-1.5 rounded-l-md border flex items-center text-sm ${currentPage === 1 ? 'bg-gray-100 text-gray-400 border-gray-300' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}
+                className={`px-3 py-2 rounded-l-md border flex items-center text-sm ${currentPage === 1 ? 'bg-gray-100 text-gray-400 border-gray-300' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
@@ -242,7 +241,7 @@ export const SavedJobs = () => {
                   <button
                     key={pageNum}
                     onClick={() => paginate(pageNum)}
-                    className={`px-3 py-1.5 border-t border-b text-sm ${currentPage === pageNum ? 'bg-blue-500 text-white border-blue-500' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}
+                    className={`px-3 py-2 border-t border-b text-sm ${currentPage === pageNum ? 'bg-blue-500 text-white border-blue-500' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}
                   >
                     {pageNum}
                   </button>
@@ -252,7 +251,7 @@ export const SavedJobs = () => {
               <button
                 onClick={handleNextPage}
                 disabled={currentPage === totalPages}
-                className={`px-3 py-1.5 rounded-r-md border flex items-center text-sm ${currentPage === totalPages ? 'bg-gray-100 text-gray-400 border-gray-300' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}
+                className={`px-3 py-2 rounded-r-md border flex items-center text-sm ${currentPage === totalPages ? 'bg-gray-100 text-gray-400 border-gray-300' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -264,4 +263,4 @@ export const SavedJobs = () => {
   );
 };
 
-export default SavedJobs;
+export default FindJob;
